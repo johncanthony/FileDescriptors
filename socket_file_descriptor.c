@@ -59,7 +59,7 @@ int main()
 
    //For all of you in the audience, you should know that there needs to be the double carriage return (\r\n\r\n) at the end of this.
    //Go ahead and try it for yourself and waste an hour of your time like I did.
-   const char *message = "GET / HTTP/1.1\r\n\r\n";
+   const char *message = "GET \r\n\r\n";
    int length;
    length = strlen(message)+1;
    
