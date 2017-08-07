@@ -60,7 +60,8 @@ int main(int argc, char *argv[])
    write(STDOUT_FILENO,buff,sizeof(buff));
        
    
-     	   
+   //Close the file
+   close(fd);
 
 
    return 0;

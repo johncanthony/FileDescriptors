@@ -4,9 +4,11 @@
   Open a socket using the system call socket(). This will provide us with a file descriptor that
   is specific to the process that handles the execution of this code. 
   
-  Do Some "Light" Reading:
+  Just a little more "light" reading
   http://man7.org/linux/man-pages/man2/open.2.html
   http://man7.org/linux/man-pages/man2/write.2.html
+  http://man7.org/linux/man-pages/man2/socket.2.html
+  http://man7.org/linux/man-pages/man2/stat.2.html
 */
 
 #include <fcntl.h>
