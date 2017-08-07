@@ -21,9 +21,18 @@ int main()
 
 
 
+   /*
+   =====EDIT THIS AREA using the information from the open() documentation for truncation and append
+   */
+    
+
    //Open file and obtain process specific file descriptor
-   //*keep in mind we are using the O_APPEND flag to open the file only for appended writing 
    int fd = open("hello_world.txt", O_WRONLY | O_APPEND);
+
+
+   /*
+   =====END EDIT
+   */
 
    //When open fails it will return a `-1` for the file descriptor, we need to catch this error
    if(fd<0)
