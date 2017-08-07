@@ -22,23 +22,28 @@ int main()
 
 
    //Open file and obtain process specific file descriptor
-   //*keep in mind we are using the O_RDONLY flag to open the file only for reading* 
-   int fd = open("hello_world.txt",O_RDONLY);
+   //*keep in mind we are using the O_APPEND flag to open the file only for appended writing 
+   int fd = open("hello_world.txt", O_WRONLY | O_APPEND);
 
    //When open fails it will return a `-1` for the file descriptor, we need to catch this error
    if(fd<0)
       return 1;
 
-   //Convert the fd integer to something that can be handled by write
-   char fd_hr[11]={0x0};
-   sprintf(fd_hr,"%d",fd);
+   
+   const char *message = "A whole new line!\n";
+   int length;
+   length = strlen(message)+1;
 
-   // We could have simply imported stdio.h and used printf(), but this is about sys calls and file descriptors damn it!
-   // Note we are passing the file descriptor of 1 for STDOUT to print to the terminal
-   write(STDOUT, fd_hr, sizeof(fd_hr));
-   write(STDOUT, "\n", 3);
+   if(write(fd,message,length) != length){
+      write(2,"There was an error in writing\n",31);
+      return 1;
+   }
+   else{
+     write(STDOUT,"Line Written using file descriptor.\n",40);
+   }
 
-   close(fd)
+
+   close(fd);
 
    return 0;
 
